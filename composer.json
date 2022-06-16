@@ -35,7 +35,8 @@
         "wpackagist-theme/twentytwentytwo": "^1.2"
     },
     "require-dev": {
-        "wp-cli/wp-cli-bundle": "^2.6"
+        "wp-cli/wp-cli-bundle": "^2.6",
+        "xwp/wait-for": "^0.0.1"
     },
     "scripts": {
         "test-theme": "composer test --working-dir=wp-content/themes/sample-theme"

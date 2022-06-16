@@ -29,3 +29,11 @@ define( 'WP_TESTS_TITLE', 'Test Blog' );
 define( 'WP_PHP_BINARY', 'php' );
 
 define( 'WPLANG', '' );
+
+$db_connection = new XWP\Wait_For\Tcp_Connection( DB_HOST, 3306 );
+
+try {
+	$db_connection->connect( 30 ); // Wait 30 seconds for the DB to become available.
+} catch ( Exception $e ) {
+	trigger_error( $e->getMessage(), E_USER_ERROR );
+}

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4a4196caca6725ca8a93312b73f85cd1",
+    "content-hash": "de315ce243160ed891b987b4e36e56d0",
     "packages": [
         {
             "name": "composer/installers",
@@ -4817,6 +4817,32 @@
                 "source": "https://github.com/wp-cli/wp-config-transformer/tree/v1.3.0"
             },
             "time": "2022-01-10T18:37:52+00:00"
+        },
+        {
+            "name": "xwp/wait-for",
+            "version": "0.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/xwp/io-php-wait-for.git",
+                "reference": "b254328a33cfd6791637e53df8658d7b3f46af37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/xwp/io-php-wait-for/zipball/b254328a33cfd6791637e53df8658d7b3f46af37",
+                "reference": "b254328a33cfd6791637e53df8658d7b3f46af37",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "src/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "support": {
+                "source": "https://github.com/xwp/io-php-wait-for/tree/0.0.1"
+            },
+            "time": "2022-05-17T18:05:32+00:00"
         }
     ],
     "aliases": [],
