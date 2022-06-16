@@ -21,5 +21,5 @@ jobs:
     - run: npm install
     - run: composer install
     - run: npm run test
-    - run: npm run release --workspaces
+    - run: npm run release
    
