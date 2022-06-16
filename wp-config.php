@@ -5,6 +5,9 @@
  * phpcs:disable WordPress.WP.CapitalPDangit.Misspelled, WordPress.WP.GlobalVariablesOverride.Prohibited
  */
 
+// Include the project-wide autoloader.
+require_once __DIR__ . '/vendor/autoload.php';
+
 define( 'WP_CONTENT_DIR', __DIR__ . '/wp-content' );
 
 define( 'DB_NAME', getenv( 'WP_DB_NAME' ) );
@@ -18,10 +21,5 @@ define( 'DB_CHARSET', 'utf8' );
 define( 'DB_COLLATE', '' );
 
 define( 'WP_DEBUG', getenv( 'WP_DEBUG' ) ? true : false );
-
-if ( ! empty(  $_SERVER['HTTP_HOST'] ) ) {
-    define( 'WP_HOME', 'http://' . $_SERVER['HTTP_HOST'] );
-    define( 'WP_SITEURL', 'http://' . $_SERVER['HTTP_HOST'] );
-}
 
 require_once ABSPATH . 'wp-settings.php';

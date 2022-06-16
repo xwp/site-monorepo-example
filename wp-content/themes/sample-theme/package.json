@@ -1,11 +1,14 @@
 {
   "name": "@xwp/sample-theme",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Sample Theme",
+  "private": true,
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "wp-scripts build js/src/index.js --output-path=js/dist"
   },
-  "author": "",
-  "license": "MIT"
+  "author": "XWP",
+  "license": "MIT",
+  "devDependencies": {
+    "@wordpress/scripts": "^23.3.0"
+  }
 }

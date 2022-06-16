@@ -6,7 +6,7 @@ services:
     image: wordpress:php7.4-apache
     restart: always
     ports:
-      - 8080:80
+      - 80:80
     environment:
       # Referenced in wp-config.php
       WP_DB_HOST: db
