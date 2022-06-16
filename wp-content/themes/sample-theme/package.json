@@ -4,7 +4,9 @@
   "description": "Sample Theme",
   "private": true,
   "scripts": {
-    "build": "wp-scripts build js/src/index.js --output-path=js/dist"
+    "postinstall": "composer install",
+    "build": "wp-scripts build js/src/index.js --output-path=js/dist",
+    "release": "npm run build"
   },
   "author": "XWP",
   "license": "MIT",

@@ -19,7 +19,6 @@ jobs:
         php-version: '7.4'
         tools: composer:v2
     - run: npm install
-    - run: composer install
     - run: npm run test
     - run: npm run release
    
