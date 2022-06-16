@@ -1,5 +1,5 @@
 {
-    "name": "xwp/composer-monorepo-deps",
+    "name": "xwp/site-monorepo-example",
     "type": "project",
     "license": "MIT",
     "repositories": [
