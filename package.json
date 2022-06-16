@@ -10,6 +10,7 @@
     "wp-content/themes/sample-theme"
   ],
   "scripts": {
+    "postinstall": "composer install",
     "release": "npm-run-all release:*",
     "release:autoload": "composer install --no-dev --prefer-dist --optimize-autoloader",
     "release:dependencies": "npm run release --workspaces",
