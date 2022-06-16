@@ -13,7 +13,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version-file: '.nvmrc'
-        cache: true
+        cache: node
     - uses: shivammathur/setup-php@v2
       with:
         php-version: '7.4'
