@@ -36,5 +36,8 @@
     },
     "require-dev": {
         "wp-cli/wp-cli-bundle": "^2.6"
+    },
+    "scripts": {
+        "test-theme": "composer test --working-dir=wp-content/themes/sample-theme"
     }
 }

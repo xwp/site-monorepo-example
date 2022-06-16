@@ -13,6 +13,7 @@ services:
       WP_DB_USER: wordpress
       WP_DB_PASSWORD: wordpress
       WP_DB_NAME: wordpress
+      WP_PHPUNIT__TESTS_CONFIG: /var/www/html/wp-tests-config.php
     volumes:
       - .:/var/www/html
 

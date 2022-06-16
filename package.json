@@ -13,7 +13,9 @@
     "release": "npm-run-all release:*",
     "release:autoload": "composer install --no-dev --prefer-dist --optimize-autoloader",
     "release:dependencies": "npm run build --workspaces --if-present",
-    "cli": "docker-compose run --rm wordpress"
+    "cli": "docker-compose run --rm wordpress",
+    "test": "npm-run-all test:*",
+    "test:theme": "npm run cli -- vendor/bin/composer test-theme"
   },
   "author": "XWP",
   "license": "MIT",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fe1e7db860c4b3872c5a523acbaa04da",
+    "content-hash": "4a4196caca6725ca8a93312b73f85cd1",
     "packages": [
         {
             "name": "composer/installers",
@@ -352,12 +352,22 @@
             "dist": {
                 "type": "path",
                 "url": "wp-content/themes/sample-theme",
-                "reference": "635f868812a2c0081f0b48002b65a6d70c095619"
+                "reference": "5693783a2b7638df8c2d221e90e5d45b5a2c4f2b"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.7",
+                "wp-phpunit/wp-phpunit": "^6.0",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "type": "wordpress-theme",
             "autoload": {
                 "classmap": [
                     "php/"
+                ]
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
                 ]
             },
             "license": [
