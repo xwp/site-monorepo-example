@@ -1,0 +1,10 @@
+url: local.wpenv.net
+path: wp
+
+# Define the default multisite install config.
+core install:
+  title: Sample Site
+  admin_user: admin
+  admin_password: password
+  admin_email: ione@local.wpenv.net
+  skip-config:

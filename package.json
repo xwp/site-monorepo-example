@@ -1,0 +1,19 @@
+{
+  "name": "@xwp/composer-monorepo-example",
+  "version": "1.0.0",
+  "description": "WordPress site monorepo example",
+  "workspaces": [
+    "public/wp-content/themes/sample-theme"
+  ],
+  "scripts": {
+    "release": "npm run release --workspaces --if-present",
+    "cli": "docker-compose run --rm wordpress",
+    "env": "wp-env"
+  },
+  "author": "XWP",
+  "license": "MIT",
+  "devDependencies": {
+    "@wordpress/env": "^4.9.0"
+  },
+  "dependencies": {}
+}

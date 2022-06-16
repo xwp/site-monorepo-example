@@ -1,0 +1,40 @@
+{
+    "name": "xwp/composer-monorepo-deps",
+    "type": "project",
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "wp-content/themes/sample-theme"
+        },
+        {
+            "type": "composer",
+            "url": "https://wpackagist.org",
+            "only": [
+                "wpackagist-plugin/*",
+                "wpackagist-theme/*"
+            ]
+        }
+    ],
+    "extra": {
+        "wordpress-install-dir": "wp",
+        "installer-paths": {
+            "wp-content/themes/{$name}": ["type:wordpress-theme"],
+            "wp-content/plugins/{$name}": ["type:wordpress-plugin"]
+        }
+    },
+    "config": {
+        "allow-plugins": {
+            "roots/wordpress-core-installer": true,
+            "composer/installers": true
+        }
+    },
+    "require": {
+        "xwp/sample-theme": "^1.0",
+        "roots/wordpress": "^6.0",
+        "wpackagist-theme/twentytwentytwo": "^1.2"
+    },
+    "require-dev": {
+        "wp-cli/wp-cli-bundle": "^2.6"
+    }
+}
