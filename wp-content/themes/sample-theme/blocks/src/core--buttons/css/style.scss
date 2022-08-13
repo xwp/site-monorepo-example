@@ -1,0 +1,7 @@
+.wp-block-button {
+	&__link {
+		&:hover {
+			background-color: var(--wp--preset--color--primary);
+		}
+	}
+}

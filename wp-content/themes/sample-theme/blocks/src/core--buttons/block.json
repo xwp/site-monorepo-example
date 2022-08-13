@@ -1,0 +1,4 @@
+{
+    "script": "file:script.js",
+    "editorScript": "file:editor.js"
+}
