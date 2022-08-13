@@ -21,6 +21,10 @@ define( 'DB_USER', getenv( 'WP_DB_USER' ) );
 define( 'DB_PASSWORD', getenv( 'WP_DB_PASSWORD' ) );
 define( 'DB_HOST', getenv( 'WP_DB_HOST' ) );
 
+define( 'SCRIPT_DEBUG', true );
+define( 'WP_DEBUG', true );
+define( 'WP_DEBUG_DISPLAY', true );
+
 $table_prefix = 'wp_';
 
 define( 'DB_CHARSET', 'utf8' );
