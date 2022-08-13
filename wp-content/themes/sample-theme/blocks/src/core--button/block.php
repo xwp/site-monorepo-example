@@ -17,8 +17,6 @@ $editor_script = new Block_Script( __DIR__ . '/editor.js' );
 $block->add_asset( 'editorScript', $editor_script->editor_script() );
 $block->add_asset( 'editorStyle', $editor_script->editor_style() );
 
-$block->remove_variation( 'fill' );
-
 // The CSS styles for this are added to the block style.
 $block->add_variation(
     [
