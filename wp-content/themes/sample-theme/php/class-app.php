@@ -13,10 +13,11 @@ class App {
     }
 
     public function init() {
+        add_action( 'init', [ $this, 'init_blocks' ] );
+        add_action( 'init', [ $this, 'init_patterns' ] );
         add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_theme_assets' ) );
         add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
         add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
-        add_action( 'init', [ $this, 'init_blocks' ] );
         add_action( 'after_setup_theme', [ $this, 'after_setup_theme' ] );
         add_filter( 'wp_should_load_separate_core_block_assets', '__return_true' );
     }
@@ -49,13 +50,40 @@ class App {
         }
     }
 
+    protected function require_object_from_file( $path ) {
+        if ( is_readable( $path ) ) {
+            ob_start();
+            $object = require $path;
+            ob_end_clean();
+
+            return $object;
+        }
+
+        return null;
+    }
+
     public function init_blocks() {
         foreach ( glob( $this->theme->path_to( 'blocks/src/*/block.php' ) ) as $block_file ) {
-            if ( is_readable( $block_file ) ) {
-                $block = include $block_file;
-                $block->register();
-
+            $block = $this->require_object_from_file( $block_file );
+            
+            if ( $block instanceof Block ) {
                 $this->blocks[] = $block;
+                $block->register();
+            }
+        }
+    }
+
+    public function init_patterns() {
+        foreach ( glob( $this->theme->path_to( 'patterns/*/pattern.php' ) ) as $pattern_file ) {
+            $pattern = $this->require_object_from_file( $pattern_file );
+
+            if ( $pattern instanceof Pattern ) {
+                $this->patterns[] = $pattern;
+                
+                register_block_pattern(
+                    sprintf( 'xwp-sample-theme-pattern/%s', $pattern->name() ),
+                    $pattern->properties()
+                );
             }
         }
     }
