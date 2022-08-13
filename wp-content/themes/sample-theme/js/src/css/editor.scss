@@ -1,5 +1,8 @@
 // Please put the block specific overrides under /blocks.
+@use 'sass:meta';
 
 .editor-styles-wrapper {
+    @include meta.load-css( 'style.scss' );
+
 	background-color: yellow;
 }
