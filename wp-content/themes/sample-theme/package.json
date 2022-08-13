@@ -8,6 +8,9 @@
     "build": "npm-run-all build:*",
     "build:scripts": "wp-scripts build js/src/index.js js/src/editor.js --output-path=js/dist",
     "build:blocks": "wp-scripts build --webpack-src-dir=blocks/src --output-path=blocks/dist",
+    "watch": "npm-run-all --parallel watch:*",
+    "watch:scripts": "npm run build:scripts -- --watch",
+    "watch:blocks": "npm run build:blocks -- --watch",
     "release": "npm run build"
   },
   "author": "XWP",
