@@ -4,4 +4,8 @@
 			background-color: var(--wp--preset--color--primary);
 		}
 	}
+
+	&.is-style-secondary &__link:link {
+		background-color: purple;
+	}
 }
