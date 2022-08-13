@@ -8,6 +8,8 @@
     "build": "npm-run-all build:*",
     "build:scripts": "wp-scripts build js/src/index.js js/src/editor.js --output-path=js/dist",
     "build:blocks": "wp-scripts build --webpack-src-dir=blocks/src --output-path=blocks/dist",
+    "dev:scripts": "wp-scripts start js/src/index.js js/src/editor.js --output-path=js/dist --hot --allowed-hosts all --mode development",
+    "dev:blocks": "wp-scripts start --webpack-src-dir=blocks/src --output-path=blocks/dist --hot --allowed-hosts all --mode development",
     "watch": "npm-run-all --parallel watch:*",
     "watch:scripts": "npm run build:scripts -- --watch",
     "watch:blocks": "npm run build:blocks -- --watch",
