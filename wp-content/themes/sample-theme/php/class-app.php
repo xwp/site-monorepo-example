@@ -62,17 +62,6 @@ class App {
         return null;
     }
 
-    public function init_blocks() {
-        foreach ( glob( $this->theme->path_to( 'blocks/src/*/block.php' ) ) as $block_file ) {
-            $block = $this->require_object_from_file( $block_file );
-            
-            if ( $block instanceof Block ) {
-                $this->blocks[] = $block;
-                $block->register();
-            }
-        }
-    }
-
     public function init_patterns() {
         foreach ( glob( $this->theme->path_to( 'patterns/*/pattern.php' ) ) as $pattern_file ) {
             $pattern = $this->require_object_from_file( $pattern_file );
@@ -84,6 +73,17 @@ class App {
                     sprintf( 'xwp-sample-theme-pattern/%s', $pattern->name() ),
                     $pattern->properties()
                 );
+            }
+        }
+    }
+
+    public function init_blocks() {
+        foreach ( glob( $this->theme->path_to( 'blocks/src/*/block.php' ) ) as $block_file ) {
+            $block = $this->require_object_from_file( $block_file );
+            
+            if ( $block instanceof Block ) {
+                $this->blocks[] = $block;
+                $block->register();
             }
         }
     }
