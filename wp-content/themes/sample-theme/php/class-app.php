@@ -121,6 +121,13 @@ class App {
     }
 
     public function enqueue_block_editor_assets() {
+        // Global editor styles.
+        wp_enqueue_style(
+            $this->theme->asset_id( 'editor' ),
+            $this->theme->url_to( 'js/dist/editor.css' )
+        );
+
+        // Block-specific styles.
         foreach ( $this->blocks as $block ) {
             $assets = $block->assets();
 
