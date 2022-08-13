@@ -19,15 +19,23 @@ class Block_Script {
 	 *
 	 * @return string
 	 */
-	public function style_css() {
+	public function style() {
 		return sprintf( '%s/style-%s.css', dirname( $this->path ), $this->filename );
 	}
 
-	public function css() {
+	public function editor_style() {
 		return sprintf( '%s/%s.css', dirname( $this->path ), $this->filename );
 	}
 
-	public function js() {
+	public function script() {
+		return $this->path;
+	}
+
+	public function editor_script() {
+		return $this->path;
+	}
+
+	public function view_script() {
 		return $this->path;
 	}
 }
