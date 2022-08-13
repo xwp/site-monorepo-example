@@ -99,6 +99,18 @@ class App {
                 );
             }
 
+            if ( ! empty( $assets['viewScript'] ) ) {
+                $asset_meta = $this->block_asset_php( $assets['viewScript'] );
+
+                wp_enqueue_script(
+                    $block->handle_for_context( 'viewScript' ),
+                    $this->theme->url_to( $this->block_path_to_dist( $assets['viewScript'] ) ),
+                    $asset_meta['dependencies'],
+                    $asset_meta['version'],
+                    true
+                );
+            }
+
             if ( ! empty( $assets['style'] ) ) {
                 wp_enqueue_style(
                     $block->handle_for_context( 'style' ),
