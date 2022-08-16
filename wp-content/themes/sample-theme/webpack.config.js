@@ -16,8 +16,7 @@ function filesToEntries( files ) {
 
 const entryFiles = [
     // Theme.
-    'js/index.js',
-    'js/editor.js',
+    ...glob( 'js/*.js' ),
     
     // Blocks.
     ...glob( 'blocks/*/*.js' )
