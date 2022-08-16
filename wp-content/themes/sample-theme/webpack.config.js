@@ -7,8 +7,8 @@ function filesToEntries( files ) {
         files.map( file => {
             const parsed = path.parse( file );
             return [ 
-                path.join( parsed.dir, parsed.name ), 
-                `./${ path.join( parsed.dir, parsed.base ) }` 
+                path.join( parsed.dir, parsed.name ), // Generate a directory-tree-like name to eject in matching directory.
+                `./${ path.join( parsed.dir, parsed.base ) }` // Must be relative to the project root. 
             ];
         } )
     );
@@ -25,4 +25,8 @@ module.exports = {
     output: {
         path: path.resolve( __dirname, 'dist' ),
     },
+    optimization: {
+        ...defaultConfig.optimization,
+        runtimeChunk: 'single', // Include just one React Refresh runtime per https://github.com/pmmmwh/react-refresh-webpack-plugin/blob/main/docs/TROUBLESHOOTING.md#externalising-react
+    }
 }
