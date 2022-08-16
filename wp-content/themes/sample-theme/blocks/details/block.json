@@ -40,6 +40,6 @@
 		"content": "Detail content",
 		"openDetail": "true"
 	},
-	"editorScript": "file:../../dist/blocks/details/editor.js",
-	"style": "file:../../dist/blocks/details/editor-index.css"
+	"style": "file:../../dist/blocks/details/index-style.css",
+	"editorScript": "file:../../dist/blocks/details/editor.js"
 }
