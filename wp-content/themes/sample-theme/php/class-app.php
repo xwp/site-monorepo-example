@@ -152,7 +152,7 @@ class App {
         // Global editor styles.
         wp_enqueue_style(
             $this->theme->asset_id( 'editor' ),
-            $this->theme->url_to( 'js/dist/editor.css' )
+            $this->theme->url_to( 'dist/js/editor.css' )
         );
 
         // Block-specific styles.
