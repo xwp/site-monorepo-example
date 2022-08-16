@@ -12,6 +12,13 @@ class Block {
 
 	protected $variations_disabled = [];
 
+	/**
+	 * Block JSON.
+	 *
+	 * @var \WP_Block_Type
+	 */
+	protected $json;
+
 	protected $assets = [
 		'script' => null,
 		'editorScript' => null,
@@ -30,6 +37,15 @@ class Block {
 
 	public function extends( $extends ) {
 		$this->extends_id = $extends;
+	}
+
+	public static function from_json( $path ) {
+		$block_json = register_block_type_from_metadata( $path );
+
+		$block = new self( $block_json->name );
+		$block->json = $block_json;
+
+		return $block;
 	}
 
 	public function assets() {
