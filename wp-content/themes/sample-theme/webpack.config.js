@@ -15,11 +15,8 @@ function filesToEntries( files ) {
 }
 
 const entryFiles = [
-    // Theme.
     ...glob( 'js/*.js' ),
-    
-    // Blocks.
-    ...glob( 'blocks/*/*.js' )
+    ...glob( 'blocks/*/*.js' ),
 ];
 
 module.exports = {
