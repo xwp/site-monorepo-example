@@ -1,18 +1,31 @@
 const path = require( 'path' );
+const { sync: glob } = require( 'fast-glob' );
 const defaultConfig = require( '@wordpress/scripts/config/webpack.config.js' );
 
-const entries = {
-    'js/index': './js/index.js',
-    'js/editor': './js/editor.js',
+function filesToEntries( files ) {
+    return Object.fromEntries(
+        files.map( file => {
+            const parsed = path.parse( file );
+            return [ 
+                path.join( parsed.dir, parsed.name ), 
+                `./${ path.join( parsed.dir, parsed.base ) }` 
+            ];
+        } )
+    );
+}
+
+const entryFiles = [
+    // Theme.
+    'js/index.js',
+    'js/editor.js',
     
-    // Blocks
-    'blocks/core--button/editor': './blocks/core--button/editor.js',
-    'blocks/core--button/script': './blocks/core--button/script.js'
-};
+    // Blocks.
+    ...glob( 'blocks/*/*.js' )
+];
 
 module.exports = {
     ...defaultConfig,
-    entry: entries,
+    entry: filesToEntries( entryFiles ),
     output: {
         path: path.resolve( __dirname, 'dist' ),
     },
