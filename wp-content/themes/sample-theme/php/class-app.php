@@ -4,6 +4,8 @@ namespace XWP\Sample_Theme;
 
 class App {
 
+    const SCRIPT_HANDLE_REFRESH_RUNTIME = 'react-refresh-runtime';
+
     protected $theme;
 
     protected $blocks = [];
@@ -15,7 +17,9 @@ class App {
     public function init() {
         add_action( 'init', [ $this, 'init_blocks' ] );
         add_action( 'init', [ $this, 'init_patterns' ] );
-        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_theme_assets' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_global_scripts' ) );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_theme_scripts' ) );
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_global_scripts' ) );
         add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
         add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
         add_action( 'after_setup_theme', [ $this, 'after_setup_theme' ] );
@@ -27,7 +31,17 @@ class App {
         add_theme_support( 'wp-block-styles' );
     }
 
-    public function enqueue_theme_assets() {
+    public function enqueue_global_scripts() {
+        // Enqueue only during development for "hot" reloading.
+        if ( is_readable( $this->theme->path_to( 'dist/runtime.js' ) ) ) {
+            wp_register_script(
+                $this->theme->asset_id( self::SCRIPT_HANDLE_REFRESH_RUNTIME ),
+                $this->theme->url_to( 'dist/runtime.js' ),
+            );
+        }
+    }
+
+    public function enqueue_theme_scripts() {
         $index_js_meta = $this->asset_php( 'dist/js/index.js' );
 
         if ( ! empty( $index_js_meta['url'] ) ) {
@@ -112,8 +126,9 @@ class App {
             $meta['version'] = $asset_php_meta['version'];
         }
 
+        // Enqueue the React refresh runtime for "hot" reloading.
         if ( in_array( 'wp-react-refresh-runtime', $meta['dependencies'], true ) ) {
-            $meta['dependencies'][] = 'wp-react-refresh-entry';
+            $meta['dependencies'][] = $this->theme->asset_id( self::SCRIPT_HANDLE_REFRESH_RUNTIME );
         }
         
         return $meta;
@@ -172,7 +187,7 @@ class App {
             $assets = $block->assets();
 
             if ( ! empty( $assets['editorScript'] ) ) {
-                $asset_meta = $this->asset_php( $assets['editorScript'] );
+                $asset_meta = $this->asset_php( $this->block_path_to_dist( $assets['editorScript'] ) );
 
                 wp_enqueue_script(
                     $block->handle_for_context( 'editorScript' ),
