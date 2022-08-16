@@ -28,14 +28,14 @@ class App {
     }
 
     public function enqueue_theme_assets() {
-        $js_meta_file = $this->theme->path_to( 'js/dist/index.asset.php' );
+        $js_meta_file = $this->theme->path_to( 'dist/js/index.asset.php' );
 
         if ( is_readable( $js_meta_file ) ) {
             $js_meta = require $js_meta_file;
 
             wp_enqueue_script(
                 $this->theme->asset_id( 'index' ),
-                $this->theme->url_to( 'js/dist/index.js' ),
+                $this->theme->url_to( 'dist/js/index.js' ),
                 $js_meta['dependencies'],
                 $js_meta['version'],
                 true
@@ -43,7 +43,7 @@ class App {
 
             wp_enqueue_style(
                 $this->theme->asset_id( 'style-index' ),
-                $this->theme->url_to( 'js/dist/style-index.css' ),
+                $this->theme->url_to( 'dist/js/style-index.css' ),
                 array(),
                 $js_meta['version']
             );
@@ -78,7 +78,7 @@ class App {
     }
 
     public function init_blocks() {
-        foreach ( glob( $this->theme->path_to( 'blocks/src/*/block.php' ) ) as $block_file ) {
+        foreach ( glob( $this->theme->path_to( 'blocks/*/block.php' ) ) as $block_file ) {
             $block = $this->require_object_from_file( $block_file );
             
             if ( $block instanceof Block ) {
@@ -89,7 +89,7 @@ class App {
     }
 
     protected function block_path_to_dist( $path ) {
-        return str_replace( '/blocks/src/', '/blocks/dist/', $path );
+        return str_replace( $this->theme->dir(), $this->theme->path_to( 'dist' ), $path );
     }
 
     protected function block_asset_php( $path, $deps = [] ) {
