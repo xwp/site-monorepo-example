@@ -6,7 +6,7 @@
   "scripts": {
     "build": "wp-scripts build",
     "start": "wp-scripts start --hot --allowed-hosts all --mode development",
-    "watch": "wp-scripts start --watch",
+    "watch": "wp-scripts start --watch --mode development",
     "release": "npm run build"
   },
   "author": "XWP",
