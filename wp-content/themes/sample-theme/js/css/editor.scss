@@ -2,7 +2,8 @@
 @use 'sass:meta';
 
 .editor-styles-wrapper {
-    @include meta.load-css( 'style.scss' );
+    // TODO: Replace this with Gutenberg PostCSS scoper for editor styles.
+    // @include meta.load-css( 'style.scss' );
 
 	background-color: yellow;
 }
