@@ -105,15 +105,15 @@ class App {
             'url' => $this->theme->url_to( $path ),
         ];
 
-        if ( in_array( 'wp-react-refresh-runtime', $meta['dependencies'] ) ) {
-            $meta['dependencies'][] = 'wp-react-refresh-entry';
-        }
-
         if ( is_readable( $asset_php_path ) ) {
             $asset_php_meta = require $asset_php_path;
             
             $meta['dependencies'] = array_merge( $meta['dependencies'], $asset_php_meta['dependencies'] );
             $meta['version'] = $asset_php_meta['version'];
+        }
+
+        if ( in_array( 'wp-react-refresh-runtime', $meta['dependencies'], true ) ) {
+            $meta['dependencies'][] = 'wp-react-refresh-entry';
         }
         
         return $meta;
