@@ -1,0 +1,46 @@
+{
+	"$schema": "https://json.schemastore.org/block.json",
+	"apiVersion": 2,
+	"version": "1.0.0",
+	"name": "xwp-sample-theme/details",
+	"title": "Details",
+	"category": "xwp-sample-theme",
+	"icon": "text-page",
+	"description": "Details HTML element",
+	"keywords": [
+		"details",
+		"summary",
+		"collapse",
+		"expand"
+	],
+	"textdomain": "xwp-sample-theme",
+	"supports": {
+		"customClassName": true,
+		"html": false,
+		"reusable": false
+	},
+	"attributes": {
+		"summary": {
+			"type": "string"
+		},
+		"summaryTag": {
+			"type": "string",
+			"default": "span"
+		},
+		"content": {
+			"type": "string"
+		},
+		"openDetail": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"example": {
+		"summary": "Summary",
+		"content": "Detail content",
+		"openDetail": "true"
+	},
+	"style": "file:../../dist/blocks/details/style-script.css",
+	"editorScript": "file:../../dist/blocks/details/editor.js",
+	"script": "file:../../dist/blocks/details/script.js"
+}

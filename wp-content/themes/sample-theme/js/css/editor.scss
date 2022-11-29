@@ -1,0 +1,9 @@
+// Please put the block specific overrides under /blocks.
+@use 'sass:meta';
+
+.editor-styles-wrapper {
+    // TODO: Replace this with Gutenberg PostCSS scoper for editor styles.
+    // @include meta.load-css( 'style.scss' );
+
+	background-color: yellow;
+}

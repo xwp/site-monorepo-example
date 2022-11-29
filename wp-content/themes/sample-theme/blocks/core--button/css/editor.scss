@@ -1,0 +1,10 @@
+@use 'sass:meta';
+
+.editor-styles-wrapper {
+	// Import all default styles.
+	// @include meta.load-css( 'style.scss' );
+
+	.wp-block-button__link {
+		color: red;
+	}
+}

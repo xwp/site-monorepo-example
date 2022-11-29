@@ -1,0 +1,29 @@
+/**
+ * Block type frontend style definition.
+ * It will be enqueued both in the editor and when viewing the content on the front of the site.
+ */
+
+/**
+ * More about the CSS of the detail element
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details
+ * https://css-tricks.com/two-issues-styling-the-details-element-and-how-to-solve-them/
+ * https://css-tricks.com/almanac/selectors/m/marker/
+ * https://justmarkup.com/articles/2020-09-22-styling-and-animation-details/
+ */
+
+.c-details {
+	cursor: pointer;
+	font-size: 1em;
+
+	summary {
+		/*
+		1. Prevent block-level element (e.g. a heading) inside a <summary> element pushes that content down below the arrow marker.
+		2. Set the arrow marker vertically aligned with the block-level element
+		*/
+		> * {
+			display: inline; /* 1 */
+			vertical-align: middle; /* 2 */
+			margin: 0;
+		}
+	}
+}

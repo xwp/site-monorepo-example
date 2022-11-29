@@ -8,4 +8,5 @@ if ( ! class_exists( Theme::class ) && file_exists( __DIR__ . '/vendor/autoload.
 }
 
 $theme = new Theme( __DIR__ );
-$theme->init();
+$app = new App( $theme );
+$app->init();

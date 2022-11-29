@@ -1,0 +1,13 @@
+html {
+    --xwp-sample-theme--layout--content-size: 30em;
+    --xwp-sample-theme--layout--wide-size: 40em;
+
+    --xwp-sample-theme--color--foreground: #333;
+    --xwp-sample-theme--color--primary: blue;
+    --xwp-sample-theme--color--background: pink;
+}
+
+body {
+    font: 16px/1.5 sans-serif;
+    background-color: var( --xwp-sample-theme--color--background );
+}
